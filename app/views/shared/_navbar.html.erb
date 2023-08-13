@@ -1,0 +1,72 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><%= image_tag "twitter.svg" %></svg>
+    </a>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class>
+        <a href="#" class="nav-link link-dark back-hover rounded-pill">
+          <%= image_tag "home-solid.svg", size: "30x30" %>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link link-dark back-hover rounded-pill">
+          <%= image_tag "hashtag-solid.svg", size: "30x30" %>
+          Explore
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link link-dark back-hover rounded-pill">
+          <%= image_tag "bell-solid.svg", size: "30x30" %>
+          Notification
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link link-dark back-hover rounded-pill">
+          <%= image_tag "sms-solid.svg", size: "30x30" %>
+          Messages
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link link-dark back-hover rounded-pill">
+          <%= image_tag "bookmark-solid.svg", size: "30x30" %>
+          Bookmarks
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link link-dark back-hover rounded-pill">
+          <%= image_tag "list-solid.svg", size: "30x30" %>
+          Lists
+        </a>
+      </li>
+
+      <% if user_signed_in? %>
+      <li>
+          <%= link_to edit_user_registration_path, class: "nav-link link-dark back-hover rounded-pill" do %>
+          <%= image_tag "user.svg", size: "30x30" %><%= " #{current_user.username}" %>
+          <% end %>
+      </li>
+      <li>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link link-dark back-hover rounded-pill" do %>
+          <%= image_tag "sign-out-alt-solid.svg", size: "30x30" %><%= " Log Out" %>
+          <% end %>
+      </li>
+      <li>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= link_to "Tweet", new_tweet_path, class: "btn btn-primary rounded-pill" %>
+      </li>
+      <% else %>
+        <li>
+          <%= link_to new_user_session_path, class: "nav-link link-dark back-hover rounded-pill" do %>
+          <%= image_tag "sign-in-alt-solid.svg", size: "30x30" %><%= " Sign In" %>
+          <% end %>
+       </li>
+       <li>
+          <%= link_to new_user_registration_path, class: "nav-link link-dark back-hover rounded-pill" do %>
+          <%= image_tag "user-plus-solid.svg", size: "30x30" %><%= " sign Up" %>
+          <% end %>
+      </li>
+      <% end %>
+      </ul>
+  </div>
+  
